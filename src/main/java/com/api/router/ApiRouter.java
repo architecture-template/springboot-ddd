@@ -8,10 +8,10 @@ import com.api.response.ApiResponse;
 @RestController
 public class ApiRouter {
 
-    @GetMapping("/hello")
+    @GetMapping("/example")
     public ApiResponse helloWorld() {
         int status = 200;
-        String message = "Hello World!!";
+        String message = "Get Example";
         return new ApiResponse(status, message, null);
     }
 }
