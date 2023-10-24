@@ -1,17 +1,17 @@
 package com.api.router;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.function.RouterFunction;
+import org.springframework.web.servlet.function.ServerResponse;
+import static org.springframework.web.servlet.function.RequestPredicates.GET;
+import static org.springframework.web.servlet.function.RouterFunctions.route;
 
-import com.api.response.ApiResponse;
-
-@RestController
+@Configuration
 public class ApiRouter {
 
-    @GetMapping("/example")
-    public ApiResponse helloWorld() {
-        int status = 200;
-        String message = "Get Example";
-        return new ApiResponse(status, message, null);
+    @Bean
+    public RouterFunction<ServerResponse> apiRoutes() {
+        return route(GET("/example"), request -> ServerResponse.ok().build());
     }
 }
