@@ -93,7 +93,7 @@ DELETE: http://localhost:8080/example/2
     "message": "Delete Example",
     "data": {
         "id": 2,
-        "exampleName": "Name2 Update",
+        "exampleName": "Name2",
         "deletedAt": null,
         "createdAt": "2023-10-25T08:05:41.838+00:00",
         "updatedAt": "2023-10-25T08:05:41.838+00:00"
