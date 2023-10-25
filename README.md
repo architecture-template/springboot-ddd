@@ -13,7 +13,7 @@ make docker_db
 ```
 
 ## API仕様
-### IDから取得
+### 取得
 ```
 GET: http://localhost:8080/example/1
 ```
