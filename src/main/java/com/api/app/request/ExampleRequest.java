@@ -4,7 +4,6 @@ public class ExampleRequest {
     private String exampleName;
 
     public ExampleRequest() {
-        // デフォルトコンストラクタ
     }
 
     public ExampleRequest(String exampleName) {
