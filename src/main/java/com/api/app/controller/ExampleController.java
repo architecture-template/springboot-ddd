@@ -24,6 +24,16 @@ public class ExampleController {
         this.exampleService = exampleService;
     }
 
+    @PostMapping("")
+    public ApiResponse addExample(@RequestBody AddExample request) {
+        Example example = exampleService.addExample(request);
+        if (example == null) {
+            return new ApiResponse(500, "Failed to add Example", null);
+        }
+
+        return new ApiResponse(200, "Add Example", example);
+    }
+
     @GetMapping("/{id}")
     public ApiResponse getExample(@PathVariable Long id) {
         Example example = exampleService.getExampleById(id);
@@ -32,15 +42,5 @@ public class ExampleController {
         }
 
         return new ApiResponse(200, "Get Example", example);
-    }
-
-    @PostMapping("/add")
-    public ApiResponse addExample(@RequestBody AddExample request) {
-        Example example = exampleService.addExample(request);
-        if (example == null) {
-            return new ApiResponse(500, "Failed to add Example", null);
-        }
-
-        return new ApiResponse(200, "Add Example", example);
     }
 }

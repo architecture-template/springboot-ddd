@@ -17,11 +17,6 @@ public class ExampleService {
         this.exampleRepository = exampleRepository;
     }
 
-    // getExampleById IDから取得する
-    public Example getExampleById(Long id) {
-        return exampleRepository.findById(id).orElse(null);
-    }
-
     // addExample 追加する
     public Example addExample(AddExample request) {
         Example example = new Example();
@@ -30,5 +25,15 @@ public class ExampleService {
         example.setUpdatedAt();
 
         return exampleRepository.save(example);
+    }
+
+    // getExampleById IDから取得する
+    public Example getExampleById(Long id) {
+        return exampleRepository.findById(id).orElse(null);
+    }
+
+    // deleteExampleById IDから削除する
+    public void deleteExampleById(Long id) {
+        exampleRepository.deleteById(id);
     }
 }
