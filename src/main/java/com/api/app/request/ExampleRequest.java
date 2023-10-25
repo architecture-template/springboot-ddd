@@ -1,13 +1,13 @@
 package com.api.app.request;
 
-public class AddExample {
+public class ExampleRequest {
     private String exampleName;
 
-    public AddExample() {
+    public ExampleRequest() {
         // デフォルトコンストラクタ
     }
 
-    public AddExample(String exampleName) {
+    public ExampleRequest(String exampleName) {
         this.exampleName = exampleName;
     }
 
