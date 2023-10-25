@@ -12,8 +12,8 @@ make docker_up
 make docker_db
 ```
 
-## API
-- IDから取得
+## API仕様
+### IDから取得
 ```
 GET: http://localhost:8080/example/1
 ```
@@ -31,14 +31,15 @@ GET: http://localhost:8080/example/1
     }
 }
 ```
-- 追加
+  
+### 追加
 ```
 POST: http://localhost:8080/example
 ```
 - request
 ```json
 {
-    "exampleName": "Name4"
+    "exampleName": "Name2"
 }
 ```
 - response
@@ -47,8 +48,8 @@ POST: http://localhost:8080/example
     "status": 200,
     "message": "Add Example",
     "data": {
-        "id": 4,
-        "exampleName": "Name4",
+        "id": 2,
+        "exampleName": "Name2",
         "deletedAt": null,
         "createdAt": "2023-10-25T08:05:41.838+00:00",
         "updatedAt": "2023-10-25T08:05:41.838+00:00"
@@ -56,3 +57,46 @@ POST: http://localhost:8080/example
 }
 ```
 
+### 更新
+```
+PUT: http://localhost:8080/example/2
+```
+- request
+```
+{
+    "exampleName": "Name2 Update"
+}
+```
+- response
+```json
+{
+    "status": 200,
+    "message": "Update Example",
+    "data": {
+        "id": 2,
+        "exampleName": "Name2 Update",
+        "deletedAt": null,
+        "createdAt": "2023-10-25T08:05:41.838+00:00",
+        "updatedAt": "2023-10-25T08:05:41.838+00:00"
+    }
+}
+```
+
+### 削除
+```
+DELETE: http://localhost:8080/example/2
+```
+- response
+```
+{
+    "status": 200,
+    "message": "Delete Example",
+    "data": {
+        "id": 2,
+        "exampleName": "Name2 Update",
+        "deletedAt": null,
+        "createdAt": "2023-10-25T08:05:41.838+00:00",
+        "updatedAt": "2023-10-25T08:05:41.838+00:00"
+    }
+}
+```
