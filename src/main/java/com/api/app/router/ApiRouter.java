@@ -1,4 +1,4 @@
-package com.api.router;
+package com.api.app.router;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +12,6 @@ public class ApiRouter {
 
     @Bean
     public RouterFunction<ServerResponse> apiRoutes() {
-        return route(GET("/example"), request -> ServerResponse.ok().build());
+        return route(GET("/example/{id}"), request -> ServerResponse.ok().build());
     }
 }

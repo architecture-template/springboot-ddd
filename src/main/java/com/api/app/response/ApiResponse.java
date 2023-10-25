@@ -1,4 +1,4 @@
-package com.api.response;
+package com.api.app.response;
 
 public class ApiResponse {
 

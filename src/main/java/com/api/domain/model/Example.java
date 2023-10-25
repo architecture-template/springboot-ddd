@@ -1,7 +1,16 @@
-import javax.persistence.*;
+package com.api.domain.model;
+
+import lombok.Data;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "example")
 public class Example {
 
@@ -21,11 +30,7 @@ public class Example {
     @Column(name = "updated_at", nullable = false)
     private Date updatedAt;
 
-    public Example(Long id, String exampleName, Date createdAt, Date updatedAt) {
-        this.id = id;
-        this.exampleName = exampleName;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+    public Example() {
     }
 
     public Long getId() {
