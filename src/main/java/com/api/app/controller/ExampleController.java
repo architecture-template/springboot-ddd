@@ -11,7 +11,7 @@ import com.api.domain.service.ExampleService;
 @RestController
 @RequestMapping("/example")
 public class ExampleController {
-    
+
     private final ExampleService exampleService;
 
     public ExampleController(ExampleService exampleService) {
@@ -32,8 +32,13 @@ public class ExampleController {
 
     @PostMapping("")
     public ApiResponse addExample(@RequestBody ExampleRequest request) {
-        Example example = exampleService.addExample(request);
-        if (example == null) {
+        Example example = new Example();
+        example.setExampleName(request.getExampleName());
+        example.setCreatedAt();
+        example.setUpdatedAt();
+
+        Example result = exampleService.addExample(example);
+        if (result == null) {
             return new ApiResponse(500, "Failed to add Example", null);
         }
 
@@ -44,17 +49,16 @@ public class ExampleController {
 
     @PutMapping("/{id}")
     public ApiResponse updateExample(@PathVariable Long id, @RequestBody ExampleRequest request) {
-        Example existingExample = exampleService.getExampleById(id);
-        if (existingExample == null) {
-            return new ApiResponse(404, "Example not found", null);
-        }
+        Example example = new Example();
+        example.setId(id);
+        example.setExampleName(request.getExampleName());
 
-        Example updatedExample = exampleService.updateExample(id, request);
-        if (updatedExample == null) {
+        Example result = exampleService.updateExample(example);
+        if (result == null) {
             return new ApiResponse(500, "Failed to update Example", null);
         }
 
-        ExampleOutput output = new ExampleOutput(updatedExample);
+        ExampleOutput output = new ExampleOutput(result);
 
         return new ApiResponse(200, "Update Example", output);
     }

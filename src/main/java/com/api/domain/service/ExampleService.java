@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.api.domain.repository.ExampleRepository;
 import com.api.domain.entity.Example;
-import com.api.app.request.ExampleRequest;
 
 @Service
 public class ExampleService {
@@ -23,26 +22,21 @@ public class ExampleService {
     }
 
     // addExample 追加する
-    public Example addExample(ExampleRequest request) {
-        Example example = new Example();
-        example.setExampleName(request.getExampleName());
-        example.setCreatedAt();
-        example.setUpdatedAt();
-
+    public Example addExample(Example example) {
         return exampleRepository.save(example);
     }
 
     // updateExample IDに基づいてExampleを更新する
-    public Example updateExample(Long id, ExampleRequest request) {
-        Example existingExample = exampleRepository.findById(id).orElse(null);
-        if (existingExample != null) {
-            existingExample.setExampleName(request.getExampleName());
-            existingExample.setUpdatedAt();
-            
-            return exampleRepository.save(existingExample);
+    public Example updateExample(Example example) {
+        Example existingExample = exampleRepository.findById(example.getId()).orElse(null);
+        if (existingExample == null) {            
+            return null;
         }
 
-        return null;
+        existingExample.setExampleName(example.getExampleName());
+        existingExample.setUpdatedAt();
+
+        return exampleRepository.save(existingExample);
     }
 
     // deleteExampleById IDから削除する
