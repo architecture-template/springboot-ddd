@@ -1,11 +1,11 @@
 package com.api.domain.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.api.domain.repository.ExampleRepository;
 import com.api.domain.entity.Example;
 import com.api.app.request.ExampleRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class ExampleService {

@@ -7,7 +7,7 @@ public class ExampleOutput {
     private String exampleName;
 
     public ExampleOutput() {
-        
+        // デフォルトコンストラクター
     }
 
     public ExampleOutput(Example example) {
