@@ -27,7 +27,7 @@ public class Example {
     private Date updatedAt;
 
     public Example() {
-
+        // デフォルトコンストラクター
     }
 
     public Long getId() {
