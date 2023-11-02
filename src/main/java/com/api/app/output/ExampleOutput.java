@@ -3,6 +3,7 @@ package com.api.app.output;
 import com.api.domain.entity.Example;
 
 public class ExampleOutput {
+    
     private Long id;
     private String exampleName;
 

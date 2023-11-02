@@ -11,7 +11,7 @@ import com.api.domain.service.ExampleService;
 @RestController
 @RequestMapping("/example")
 public class ExampleController {
-
+    
     private final ExampleService exampleService;
 
     public ExampleController(ExampleService exampleService) {

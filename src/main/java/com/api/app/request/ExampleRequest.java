@@ -1,6 +1,7 @@
 package com.api.app.request;
 
 public class ExampleRequest {
+    
     private String exampleName;
 
     public ExampleRequest() {
