@@ -31,6 +31,7 @@ public class Example {
     private Date updatedAt;
 
     public Example() {
+
     }
 
     public Long getId() {

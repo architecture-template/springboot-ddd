@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.api.app.response.ApiResponse;
 import com.api.app.request.ExampleRequest;
+import com.api.app.output.ExampleOutput; 
 import com.api.domain.entity.Example;
 import com.api.domain.service.ExampleService;
 
@@ -33,7 +34,9 @@ public class ExampleController {
             return new ApiResponse(404, "Example not found", null);
         }
 
-        return new ApiResponse(200, "Get Example", example);
+        ExampleOutput output = new ExampleOutput(example);
+
+        return new ApiResponse(200, "Get Example", output);
     }
 
     @PostMapping("")
@@ -43,7 +46,9 @@ public class ExampleController {
             return new ApiResponse(500, "Failed to add Example", null);
         }
 
-        return new ApiResponse(200, "Add Example", example);
+        ExampleOutput output = new ExampleOutput(example);
+
+        return new ApiResponse(200, "Add Example", output);
     }
 
     @PutMapping("/{id}")
@@ -58,7 +63,9 @@ public class ExampleController {
             return new ApiResponse(500, "Failed to update Example", null);
         }
 
-        return new ApiResponse(200, "Update Example", updatedExample);
+        ExampleOutput output = new ExampleOutput(updatedExample);
+
+        return new ApiResponse(200, "Update Example", output);
     }
 
     @DeleteMapping("/{id}")
@@ -70,6 +77,8 @@ public class ExampleController {
 
         exampleService.deleteExampleById(id);
 
-        return new ApiResponse(200, "Delete Example", example);
+        ExampleOutput output = new ExampleOutput(example);
+
+        return new ApiResponse(200, "Delete Example", output);
     }
 }
