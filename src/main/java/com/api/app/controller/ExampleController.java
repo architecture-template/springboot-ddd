@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.api.app.response.ApiResponse;
 import com.api.app.request.ExampleRequest;
-import com.api.domain.model.Example;
+import com.api.domain.entity.Example;
 import com.api.domain.service.ExampleService;
 
 @RestController

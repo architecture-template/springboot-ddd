@@ -9,13 +9,13 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.mockito.Mockito.when;
-import com.api.domain.model.Example;
+import com.api.domain.entity.Example;
 import com.api.domain.repository.ExampleRepository;
 import com.api.app.controller.ExampleController;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class ApiApplicationTests {
+public class AppTest {
 
     @MockBean
     private ExampleRepository exampleRepository;

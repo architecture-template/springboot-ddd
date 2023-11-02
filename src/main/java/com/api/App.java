@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan({"com.api.app.controller", "com.api.domain.service"})
-@EntityScan("com.api.domain.model")
+@EntityScan("com.api.domain.entity")
 @EnableJpaRepositories("com.api.domain.repository")
-public class ApiApplication {
+public class App {
     public static void main(String[] args) {
-        SpringApplication.run(ApiApplication.class, args);
+        SpringApplication.run(App.class, args);
     }
 }
